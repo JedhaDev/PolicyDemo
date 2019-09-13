@@ -1,0 +1,44 @@
+{
+  "home": {
+    "title": "Home",
+    "select": "Change language",
+    "policies": "Policies"
+  },
+  "policies": {
+    "policy": "Policies",
+    "other": "Other"
+  },
+  "policy": {
+    "policynumber": "Number",
+    "name": "Name",
+    "age": "Age",
+    "gender": "Gender"
+  },
+  "button": {
+    "create": "New Policy",
+    "details": "Details",
+    "update": "Update",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "confirm": "Confirm",
+    "back": "Back"
+  },
+  "pagination": {
+    "previous": "previous",
+    "next": "next"
+  },
+  "validation": {
+    "required": "{field is required",
+    "max60": "Maximum allowed is 60 characters",
+    "max12": "Maximum allowed is 12 characters",
+    "format": "Invalid format"
+  },
+  "delete": {
+    "title": "Remove policy",
+    "message": "Do you confirm that you want to remove the policy?"
+  },
+  "male": "Male",
+  "female": "Female",
+  "comboSelection":  "Select an option"
+}

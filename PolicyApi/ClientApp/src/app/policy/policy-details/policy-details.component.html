@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="form-horizontal well">
+    <form [formGroup]="form" autocomplete="off" novalidate (ngSubmit)="updatePolicy(form.value)">
+      <div class="form-horizontal well">
+
+        <div class="form-group">
+          <label for="policyNumber" class="control-label col-md-2">{{ 'policy.policynumber' | translate }}: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="policyNumber" id="policyNumber" class="form-control" maxlength="12" readonly="readonly" />
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('policyNumber') && hasError('policyNumber', 'required')">{{ 'validation.required' | translate }}</em>
+            <em *ngIf="validateControl('policyNumber') && hasError('policyNumber', 'maxlength')">{{ 'validation.max12' | translate }}</em>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="Name" class="control-label col-md-2">{{ 'policy.name' | translate }}: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="name" id="name" class="form-control" maxlength="60"  readonly="readonly"/>
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('name') && hasError('name', 'required')">{{ 'validation.required' | translate }}</em>
+            <em *ngIf="validateControl('name') && hasError('name', 'maxlength')">{{ 'validation.max60' | translate }}</em>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="age" class="control-label col-md-2">{{ 'policy.age' | translate }}: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="age" id="age" class="form-control" maxlength="3"  readonly="readonly"/>
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('age') && hasError('age', 'required')">{{ 'validation.required' | translate }}</em>
+            <em *ngIf="validateControl('age') && hasError('age', 'pattern')">{{ 'validation.format' | translate }}</em>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="gender" class="control-label col-md-2">{{ 'policy.gender' | translate }}: </label>
+          <div class="col-md-5">
+            <select id="gender" class='form-control' (change)="selectOption($event.target.value)" readonly="readonly">
+              <option class='option' *ngFor='let gender of genders' [value]="gender.value" selected="{{policy?.policyHolder?.gender == gender.value}}">{{gender.name | translate }}</option>
+            </select>
+          </div>
+        </div>
+
+        <br><br>
+
+        <div class="form-group">
+          <div class="col-md-offset-5 col-md-1">
+
+          </div>
+          <div class="col-md-1">
+            <button type="button" class="btn btn-danger" (click)="redirectToPolicyList()">{{ 'button.back' | translate }}</button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <app-error-modal [modalHeaderText]="'Error message'"
+                   [modalBodyText]="errorMessage" [okButtonText]="'OK'"></app-error-modal>
+
+</div>

@@ -1,0 +1,45 @@
+{
+  "home": {
+    "title": "Inicio",
+    "select": "Change language",
+    "policies": "Politicas"
+  },
+  "policies": {
+    "policy": "Politicas",
+    "other": "Otros"
+  },
+  "policy": {
+    "policynumber": "Numero",
+    "name": "Nombre",
+    "age": "Edad",
+    "gender": "Genero"
+  },
+  "button": {
+    "create": "Nueva Politica",
+    "details": "Detalles",
+    "update": "Actualizar",
+    "delete": "Borrar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "confirm": "Confirmar",
+    "back": "Volver"
+  },
+  "pagination": {
+    "previous": "anterior",
+    "next": "siguiente"
+  },
+  "validation": {
+    "required": "el campo es requerido",
+    "max60": "El tamaño maximo es 60 caracteres",
+    "max12": "El tamaño maximo es 12 caracteres",
+    "format": "Formato invalido"
+  },
+  "delete": {
+    "title": "Remover politica",
+    "message": "Usted confirma que desea remover la politica seleccionada?"
+  },
+  "male": "Masculino",
+  "female": "Femenino",
+  "comboSelection": "Seleccione una opcion"
+
+}

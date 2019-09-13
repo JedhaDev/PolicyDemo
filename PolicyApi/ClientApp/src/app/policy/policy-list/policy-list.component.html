@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12" style="text-align: right">
+    <button type="button" id="butCreate" class="btn btn-success btn-sm" (click)="createPolicy()">{{ 'button.create' | translate }}</button>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>{{ 'policy.policynumber' | translate }}</th>
+            <th>{{ 'policy.name' | translate }}</th>
+            <th>{{ 'policy.age' | translate }}</th>
+            <th>{{ 'policy.gender' | translate }}</th>
+            <th>{{ 'button.details' | translate }}</th>
+            <th>{{ 'button.update' | translate }}</th>
+            <th>{{ 'button.delete' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let policy of policies | paginate: config">
+            <td class="col-xs-3">{{policy?.policyNumber}}</td>
+            <td class="col-xs-3">{{policy?.policyHolder?.name}}</td>
+            <td class="col-xs-3">{{policy?.policyHolder?.age}}</td>
+            <td class="col-xs-3">{{policy?.policyHolder?.gender| lowercase | translate }}</td>
+            <td class="col-xs-1"><button *ngIf="policy?.policyNumber != null;" type="button" id="details" class="btn btn-default btn-sm" (click)="viewPolicy(policy.policyNumber)">{{ 'button.details' | translate }}</button></td>
+            <td class="col-xs-1"><button *ngIf="policy?.policyNumber != null;" type="button" id="update" class="btn btn-success btn-sm"  (click)="updatePolicy(policy.policyNumber)">{{ 'button.update' | translate }}</button></td>
+            <td class="col-xs-1"><button *ngIf="policy?.policyNumber != null;" type="button" id="delete" class="btn btn-danger btn-sm" (click)="confirmDelete(policy.policyNumber);">{{ 'button.delete' | translate }}</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="pageChanged($event)" previousLabel="{{ 'pagination.previous' | translate }}" nextLabel="{{ 'pagination.next' | translate }}"></pagination-controls>
+    </div>
+  </div>
+</div>
+
+<app-question-modal [modalHeaderText]="'delete.title' | translate"  (redirectOnConfirm)="deletePolicy()"
+                 [modalBodyText]="'delete.message' | translate" [cancelButtonText]="'button.cancel' | translate" [confirmButtonText]="'button.confirm' | translate"></app-question-modal>
